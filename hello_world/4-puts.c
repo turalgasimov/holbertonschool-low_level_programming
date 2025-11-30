@@ -3,7 +3,6 @@
 /**
  * main - Entry point
  * Description: Prints the given string.
- * @parameter: no parameters.
  * Return: Always 0 (Success)
  */
 
