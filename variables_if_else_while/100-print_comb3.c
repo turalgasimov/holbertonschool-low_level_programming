@@ -17,7 +17,7 @@ int main(void)
 		{
 			putchar(i);
 			putchar(k);
-			if (k == 56)
+			if (i == 56)
 				break;
 			putchar(',');
 			putchar(' ');
