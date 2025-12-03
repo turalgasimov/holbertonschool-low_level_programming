@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+/**
+ * main - entry point
+ * Description: print digit combs
+ * Return: Always 0 (Success)
+ */
+
+int main(void)
+{
+	int i;
+	int k;
+
+	i = 48;
+	for ( ; i < 57; i++)
+		for (k = i + 1 ; k < 58; k++)
+		{
+			putchar(i);
+			putchar(k);
+			if (k == 56)
+				break;
+			putchar(',');
+			putchar(' ');
+		}
+	putchar('\n');
+	return (0);
+}
+
