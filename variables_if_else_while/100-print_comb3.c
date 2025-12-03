@@ -2,7 +2,7 @@
 
 /**
  * main - entry point
- * Description: print digit combs
+ * Description: print 2 digit combs
  * Return: Always 0 (Success)
  */
 
