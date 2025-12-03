@@ -2,7 +2,7 @@
 
 /**
  * main - entry point
- * Description: print alphabet im reverse
+ * Description: print digits of hex
  * Return: Always 0 (Success)
  */
 
