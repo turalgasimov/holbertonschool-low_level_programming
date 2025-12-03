@@ -2,7 +2,7 @@
 
 /**
  * main - entry point
- * Description: print alphabet.
+ * Description: print alphabet im reverse
  * Return: Always 0 (Success)
  */
 
@@ -10,11 +10,8 @@ int main(void)
 {
 	char i;
 
-	i = 'a';
-	for ( ; i <= 'z'; i++)
-		putchar(i);
-	i = 'A';
-	for ( ; i <= 'Z'; i++)
+	i = 'z';
+	for ( ; i >= 'a'; i--)
 		putchar(i);
 	putchar('\n');
 	return (0);
