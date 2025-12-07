@@ -8,5 +8,8 @@
 
 int print_last_digit(int res)
 {
-	return (_abs(res) % 10);
+	if (res < 0)
+		return (-res % 10);
+	else
+		return (res % 10);
 }
