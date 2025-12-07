@@ -1,15 +1,29 @@
 #include "main.h"
 
 /**
- * _abs - find abs value
- * @res: num to check
- * Return: abs value
+ * print_sign - prints sign
+ * @n: num to check
+ * Return: 0, 1, -1
  */
 
-int _abs(int res)
+int print_sign(int n)
 {
-	if (res >= 0)
-		return (res);
-	else
-		return (-res);
+	int res;
+
+	if (n > 0)
+	{
+		_putchar('+');
+		res = 1;
+	} else if (n == 0)
+	{
+		_putchar('0');
+		res = 0;
+	} else if (n < 0)
+	{
+		_putchar('-');
+		res = -1;
+	}
+
+	return (res);
 }
+
