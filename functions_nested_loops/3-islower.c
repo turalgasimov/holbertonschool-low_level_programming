@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * _islower - checks for lower case
- * parameter @c - char to check
- * return: 1 for true or 0 for false
+ * _islower - entry point
+ * Description: checks for lowercase
+ * @c: - char to check
+ * Return: 1 if the car is lowercase, 0 otherwise
  */
 
 int _islower(int c)
