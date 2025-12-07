@@ -6,7 +6,7 @@
  * Return: abs value
  */
 
-int _abs(int res);
+int _abs(int res)
 {
 	if (res >= 0)
 		return (res);
