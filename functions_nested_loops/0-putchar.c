@@ -9,8 +9,8 @@
 int main(void)
 {
 	char msg[] = "_putchar";
-	int i;
-	
+	int i = 0;
+
 	while (msg[i] != '\0')
 	{
 		putchar(msg[i]);
