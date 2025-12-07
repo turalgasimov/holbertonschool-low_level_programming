@@ -2,12 +2,16 @@
 
 /**
  * Print alphabet
- * return: always 0
+ * return: void
  */
 
-int main(void)
+void print_alphabet(void)
 {
-	print_alphabet();
-	return (0);
+	int i;
+
+	i = 97;
+	for ( ; i < 123; i++)
+		_putchar(i);
+	_putchar('\n');
 }
 
