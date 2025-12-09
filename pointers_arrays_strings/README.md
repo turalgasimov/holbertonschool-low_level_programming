@@ -10,3 +10,5 @@ List of the files and their purposes:
 
 4-print_rev.c -> prints a string, in reverse, followed by a new line.
 
+5-rev_string.c -> reverses a string. 
+
