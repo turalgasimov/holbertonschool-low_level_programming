@@ -8,7 +8,7 @@
 
 void rev_string(char *s)
 {
-	int len = 0;
+	int len = 0, i = 0;;
 	char *p = s;
 
 	while (*p != '\0')
@@ -17,10 +17,8 @@ void rev_string(char *s)
 		len++;
 	}
 
-	len--;
-
-	for ( ; len >= 0; len--)
-		_putchar(*(s + len));
+	for (i = len - 1; i >= 0; i--)
+		_putchar(s[i]);
 	_putchar('\n');
 }
 
