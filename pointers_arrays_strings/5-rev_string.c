@@ -8,17 +8,22 @@
 
 void rev_string(char *s)
 {
-	int len = 0, i = 0;
-	char *p = s;
+	int len = 0, i;
+	char tmp;
 
-	while (*p != '\0')
+	while (*s != '\0')
 	{
-		p++;
+		s++;
 		len++;
 	}
+	len--;
 
-	for (i = len - 1; i >= 0; i--)
-		_putchar(s[i]);
-	_putchar('\n');
+	for (i = 0; i < (len + 1) / 2; i++)
+	{
+		tmp = s[i];
+		s[i] = s[len];
+		s[len] = tmp;
+		len--;
+	}
 }
 
