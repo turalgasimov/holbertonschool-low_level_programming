@@ -8,26 +8,23 @@
 
 void puts_half(char *str)
 {
-	int i = 0, j;
+	int len = 0;
+	int i, start;
 
-	while (str[i] != '\0')
-	{
-		i++;
-	}
+	/* Find length of string */
+	while (str[len] != '\0')
+		len++;
 
-	if (i % 2 == 1)
-	{
-		j = (i - 1) / 2;
-		i++;
-	} else
-	{
-		j = i / 2;
-	}
+	/* Determine starting index */
+	if (len % 2 == 0)
+		start = len / 2;
+	else
+		start = (len + 1) / 2;
 
-	for (; j < i; j++)
-	{
-		_putchar(str[j]);
-	}
+	/* Print second half */
+	for (i = start; i < len; i++)
+		_putchar(str[i]);
+
 	_putchar('\n');
 }
 
