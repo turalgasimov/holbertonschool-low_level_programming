@@ -1,23 +1,33 @@
 #include "main.h"
 
 /**
- * puts2 - puts even
+ * puts_half - puts half
  * @str: ptr to str
  * Return: void
  */
 
-void puts2(char *str)
+void puts_half(char *str)
 {
-	int len = 0;
+	int i = 0, j;
 
-	while (*str != '\0')
+	while (str[i]] != '\0')
 	{
-		str++;
-		len++;
+		i++;
 	}
 
-	if (len % 2 == 0)
+	if (j % 2 == 1)
+	{
+		j = (i - 1) / 2;
+		i++;
+	} else
+	{
+		j = i / 2;
+	}
 
+	for (; j < i; j++)
+	{
+		_putchar(str[j]);
+	}
 	_putchar('\n');
 }
 
