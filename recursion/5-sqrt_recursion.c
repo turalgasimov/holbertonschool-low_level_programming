@@ -15,7 +15,7 @@ int sqrt_check(int n, int m)
 	if (m * m > n)
 		return (-1);
 
-	return (sqrt_check(n, guess + 1));
+	return (sqrt_check(n, m + 1));
 }
 
 /**
