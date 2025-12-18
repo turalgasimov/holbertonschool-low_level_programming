@@ -6,3 +6,5 @@ List of the files and their purposes:
 
 2-args.c -> prints all arguments it receives.
 
+3-mul.c -> multiplies two numbers.
+

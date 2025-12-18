@@ -10,12 +10,10 @@
 
 int main(int argc, char *argv[])
 {
-	int i;
+	if (argc != 3)
+		printf("Error\n");
 
-	for (i = 0; i < argc; i++)
-	{
-		printf("%s\n", argv[i])
-	}
+	printf("%d\n", argv[1] * argv[2]);
 
 	return (0);
 }
