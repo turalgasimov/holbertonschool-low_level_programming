@@ -4,6 +4,7 @@
  * op_add - adds two integers
  * @a: int
  * @b: int
+ * Return: int
  */
 int op_add(int a, int b)
 {
@@ -14,6 +15,7 @@ int op_add(int a, int b)
  * op_sub - subtracts two integers
  * @a: int
  * @b: int
+ * Return: int
  */
 int op_sub(int a, int b)
 {
@@ -24,6 +26,7 @@ int op_sub(int a, int b)
  * op_mul - multiplies two integers
  * @a: int
  * @b: int
+ * Return: int
  */
 int op_mul(int a, int b)
 {
@@ -34,6 +37,7 @@ int op_mul(int a, int b)
  * op_div - divides two integers
  * @a: int
  * @b: int
+ * Return: int
  */
 int op_div(int a, int b)
 {
@@ -44,6 +48,7 @@ int op_div(int a, int b)
  * op_mod - modulo of two integers
  * @a: int
  * @b: int
+ * Return: int
  */
 int op_mod(int a, int b)
 {
