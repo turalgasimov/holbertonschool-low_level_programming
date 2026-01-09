@@ -1,86 +1,48 @@
-#include "variadic_functions.h"
-#include <stdarg.h>
-#include <stddef.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <stdarg.h>
+#include "variadic_functions.h"
 
 /**
- * print_char - Prints a char
- * @ap: Argument pointer
- */
-void print_char(va_list ap)
-{
-	printf("%c", va_arg(ap, int));
-}
-
-/**
- * print_integer - Prints an integer
- * @ap: Argument pointer
- */
-void print_integer(va_list ap)
-{
-	printf("%d", va_arg(ap, int));
-}
-
-/**
- * print_float - Prints a float
- * @ap: Argument pointer
- */
-void print_float(va_list ap)
-{
-	printf("%f", va_arg(ap, double));
-}
-
-/**
- * print_string - Prints a string
- * @ap: Argument pointer
- */
-void print_string(va_list ap)
-{
-	char *s = va_arg(ap, char *);
-
-	if (!s)
-	{
-		printf("(nil)");
-		return;
-	}
-		printf("%s", s);
-}
-
-/**
- * print_all - Prints anything
- * @format: Types of arguments passed to function
+ * print_all - Prints anything based on the format string.
+ * @format: A list of types of arguments passed to the function.
+ *
+ * Return: void.
  */
 void print_all(const char * const format, ...)
 {
-	print_type types[] = {
-		{"c", print_char},
-		{"i", print_integer},
-		{"f", print_float},
-		{"s", print_string},
-		{NULL, NULL}
-	};
 	va_list ap;
-	char *separator = "";
 	int i = 0;
-	int j = 0;
+	char *str, *sep = "";
 
 	va_start(ap, format);
+
 	while (format && format[i])
 	{
-		while (types[j].type)
+		switch (format[i])
 		{
-			if (*types[j].type == format[i])
-			{
-				printf("%s", separator);
-				types[j].f(ap);
-				separator = ", ";
-			}
-			++j;
+		case 'c':
+			printf("%s%c", sep, va_arg(ap, int));
+			break;
+		case 'i':
+			printf("%s%d", sep, va_arg(ap, int));
+			break;
+		case 'f':
+			printf("%s%f", sep, va_arg(ap, double));
+			break;
+		case 's':
+			str = va_arg(ap, char *);
+			if (!str)
+				str = "(nil)";
+			printf("%s%s", sep, str);
+			break;
+		default:
+			i++;
+			continue;
 		}
-		j = 0;
-		++i;
+		sep = ", ";
+		i++;
 	}
+
 	printf("\n");
 	va_end(ap);
 }
