@@ -16,6 +16,9 @@ list_t *add_note_end(list_t **head, const char *str)
 		new = new->next;
 
 	new->next = (list_t *)malloc(sizeof(list_t));
+	if (new == NULL)
+		return (NULL);
+
 	new->str = strdup(str);
 
 	while(*str != '\0')
@@ -26,5 +29,6 @@ list_t *add_note_end(list_t **head, const char *str)
 
 	new->len = i;
 	new->next = NULL;
+	
+	return (new);
 }
-
