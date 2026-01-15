@@ -1,0 +1,30 @@
+#include "lists.h"
+
+/**
+ * add_node_end - entry
+ * @head: ptr
+ * @str: str
+ * Return: adrs / NULL
+ */
+
+list_t *add_note_end(list_t **head, const char *str)
+{
+	list_t *new = head;
+	int i = 0;
+
+	while (new->next != NULL)
+		new = new->next;
+
+	new->next = (list_t *)malloc(sizeof(list_t));
+	new->str = strdup(str);
+
+	while(*str != '\0')
+	{
+		i++;
+		str++;
+	}
+
+	new->len = i;
+	new->next = NULL;
+}
+
