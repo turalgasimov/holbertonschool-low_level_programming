@@ -5,13 +5,19 @@
 #include <stdlib.h>
 #include <stddef.h>
 
-/*typedef struct l
+/**
+ * struct l - linkedlist
+ * @str: string
+ * @len: length
+ * @next: next node
+ * Description: struct for list
+ */
+typedef struct l
 {
 	char *str;
 	unsigned int len;
 	struct l *next;
 } list_t;
-*/
 
 int _putchar(char c);
 size_t print_list(const list_t *h);
