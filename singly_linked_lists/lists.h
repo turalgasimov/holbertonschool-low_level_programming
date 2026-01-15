@@ -8,6 +8,7 @@
 typedef struct l
 {
         char *str;
+        unsigned int len;
         struct l *next;
 } list_t;
 
