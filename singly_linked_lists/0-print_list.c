@@ -15,7 +15,7 @@ size_t print_list(const list_t *h)
 	while (lst.next != NULL)
 	{
 		*s = lst.str;
-		if (s == NULL)
+		if (*s == NULL)
 			*s = "(nil)";
 		printf("[%d] %s", sizeof(*s), *s);
 		i++;
