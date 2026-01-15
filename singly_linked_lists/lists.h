@@ -7,7 +7,7 @@
 
 typedef struct l
 {
-        char *s;
+        char *str;
         struct l *next;
 } list_t;
 
