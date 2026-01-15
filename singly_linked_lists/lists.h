@@ -8,7 +8,7 @@
 typedef struct list
 {
        char *str;
-       list_t *next;         
+       struct list *next;         
 } list_t;
 
 int _putchar(char c);
