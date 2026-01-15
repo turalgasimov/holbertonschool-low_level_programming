@@ -10,14 +10,14 @@ size_t print_list(const list_t *h)
 {
 	list_t lst = *h;
 	size_t i = 0;
-	char *s;
+	char s[];
 
 	while (lst.next != NULL)
 	{
-		*s = lst.str;
-		if (*s == NULL)
-			*s = "(nil)";
-		printf("[%d] %s", sizeof(*s), *s);
+		s = lst.str;
+		if (s == NULL)
+			s = "(nil)";
+		printf("[%d] %s", sizeof(s), s);
 		i++;
 	}
 
