@@ -12,9 +12,9 @@ size_t print_list(const list_t *h)
 	size_t i = 0;
 	char *s;
 
-	while (*lst->next != NULL)
+	while (lst->next != NULL)
 	{
-		*s = *lst->str;
+		*s = lst->str;
 		if (s == NULL)
 			*s = "(nil)";
 		printf("[%d] %s", sizeof(*s), *s);
