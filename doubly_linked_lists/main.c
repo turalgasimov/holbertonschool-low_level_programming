@@ -8,5 +8,7 @@ int main()
         add_dnodeint_end(&head, 10);
         add_dnodeint_end(&head, 22);
         printf("-> %zu elements\n", print_dlistint(head));
+
+        free_dlistint(head);
         return (0);
 }
