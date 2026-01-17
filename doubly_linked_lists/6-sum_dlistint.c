@@ -12,9 +12,10 @@ int sum_dlistint(dlistint_t *head)
 		return (0);
 
 	int sum;
-	dlistint_t *node = head;
+	dlistint_t *node;
 
 	sum = 0;
+	node = head;
 	while (node != NULL)
 	{
 		sum += node->n;
