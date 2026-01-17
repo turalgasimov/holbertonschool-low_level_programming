@@ -8,11 +8,11 @@
 
 int sum_dlistint(dlistint_t *head)
 {
-	if (head == NULL)
-		return (0);
-
 	int sum;
 	dlistint_t *node;
+	
+	if (head == NULL)
+		return (0);
 
 	sum = 0;
 	node = head;
