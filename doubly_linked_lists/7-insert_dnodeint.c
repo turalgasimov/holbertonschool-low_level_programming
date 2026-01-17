@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - entry
  * @h: pointer to pointer to head;
@@ -7,7 +6,6 @@
  * @n: int
  * Return: node
  */
-
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	dlistint_t *new, *tmp;
@@ -19,12 +17,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	new->n = n;
 	if (idx == 0)
 	{
-		new->prev = NULL;
-		new->next = *h;
-		if (*h != NULL)
-			(*h)->prev = new;
-		*h = new;
-		return (new);
+		add_dnodeint(h, n);
 	}
 	tmp = *h;
 	for (i = 0; i < idx && tmp != NULL; i++)
