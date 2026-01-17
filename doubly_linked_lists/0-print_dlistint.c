@@ -13,7 +13,7 @@ size_t print_dlistint(const dlistint_t *h)
 
 	tmp = h;
 
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		cnt++;
 
