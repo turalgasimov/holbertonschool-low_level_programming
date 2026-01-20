@@ -14,10 +14,7 @@ int main(int argc, char *argv[])
 	char *file_from, *file_to, buff[1024];
 
 	if (argc != 3)
-	{
-		printf("Usage: cp file_from file_to\n");
 		exit(97);
-	}
 
 	file_from = argv[1];
 	file_to = argv[2];
