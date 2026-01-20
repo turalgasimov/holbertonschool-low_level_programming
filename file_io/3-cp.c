@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to;
+	int fd_from, fd_to, fd_out;
 	ssize_t bytesRead, bytesWrit;
 	char *file_from, *file_to, buff[1024];
 
@@ -40,6 +40,7 @@ int main(int argc, char *argv[])
 
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
+		fd_out = (fd_from == -1) ? fd_from : fd_to;
 		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", fd_out);
 	}
 
