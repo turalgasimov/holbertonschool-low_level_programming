@@ -9,7 +9,7 @@
 
 int main(int argc, char *argv[])
 {
-	int fd_from, fd_to, fd_out;
+	int fd_from, fd_to;
 	ssize_t bytesRead, bytesWrit;
 	char *file_from, *file_to, buff[1024];
 
