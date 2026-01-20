@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	}
 
 	fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
-	bytesWrit = write(fd_to, buff, bytesRead));
+	bytesWrit = write(fd_to, buff, bytesRead);
 	if (fd_to == -1 || bytesWrit == -1)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
