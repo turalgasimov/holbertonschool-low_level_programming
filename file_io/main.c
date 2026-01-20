@@ -3,9 +3,9 @@
 int main()
 {
 	const char *filename = "main.h";
-	size_t letters = 8;
+	size_t letters = 15;
 
-	read_textfile(filename, letters);
-	printf("\n");
+	ssize_t res = read_textfile(filename, letters);
+	printf("-----------x\nPrinted: %zd|\n-----------x\n", res);
 	return (0);
 }
