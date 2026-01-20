@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 	{
 		fd_out = (fd_from == -1) ? fd_from : fd_to;
 		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", fd_out);
+		exit(100);
 	}
-
 	return (0);
 }
