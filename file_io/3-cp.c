@@ -23,19 +23,24 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 
 	fd_from = open(file_from, O_RDONLY);
-	bytesRead = read(fd_from, buff, sizeof(fd_from));
-	if (fd_from == -1 || bytesRead == -1)
+	bytesRead = read(fd_from, buff, sizeof(buff));
+	while (bytesRead != 0)
 	{
-		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
-		exit(98);
-	}
+		if (fd_from == -1 || bytesRead == -1)
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
+			exit(98);
+		}
 
-	fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
-	bytesWrit = write(fd_to, buff, bytesRead);
-	if (fd_to == -1 || bytesWrit == -1)
-	{
-		dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
-		exit(99);
+		fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
+		bytesWrit = write(fd_to, buff, bytesRead);
+		if (fd_to == -1 || bytesWrit == -1)
+		{
+			dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
+			exit(99);
+		}
+
+		bytesRead = read(fd_from, buff, sizeof(buff));
 	}
 
 	if (close(fd_from) == -1 || close(fd_to) == -1)
