@@ -32,14 +32,12 @@ int main(int argc, char *argv[])
 			dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
-
 		bytesWrit = write(fd_to, buff, bytesRead);
 		if (fd_to == -1 || bytesWrit == -1)
 		{
 			dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
 			exit(99);
 		}
-
 		bytesRead = read(fd_from, buff, sizeof(buff));
 	}
 
