@@ -10,10 +10,10 @@
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd, i;
-	char buff[letters];
+	char buff[sizeof(size_t)];
 	ssize_t bytesRead, bytesWrit, count;
 
-	if(filename == NULL)
+	if (filename == NULL)
 		return (0);
 
 	fd = open(filename, O_RDONLY);
