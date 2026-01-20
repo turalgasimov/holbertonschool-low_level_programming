@@ -23,6 +23,7 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 
 	fd_from = open(file_from, O_RDONLY);
+	fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 	bytesRead = read(fd_from, buff, sizeof(buff));
 	while (bytesRead != 0)
 	{
@@ -32,7 +33,6 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 
-		fd_to = open(file_to, O_RDWR | O_CREAT | O_TRUNC, 0664);
 		bytesWrit = write(fd_to, buff, bytesRead);
 		if (fd_to == -1 || bytesWrit == -1)
 		{
