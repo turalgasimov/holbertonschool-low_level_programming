@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	bytesRead = read(fd_from, buff, sizeof(buff));
 	if (fd_from == -1 || bytesRead == -1)
 	{
-		dprintf(fd_from, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -34,14 +34,13 @@ int main(int argc, char *argv[])
 	bytesWrit = write(fd_to, buff, sizeof(buff));
 	if (fd_to == -1 || bytesWrit == -1)
 	{
-		dprintf(fd_to, "Error: Can't write to %s", file_to);
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s", file_to);
 		exit(99);
 	}
 
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		fd_out = (fd_from == -1) ? fd_from : fd_to;
-		dprintf(fd_out, "Error: Can't close fd %d", fd_out);
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %d", fd_out);
 	}
 
 	return (0);
