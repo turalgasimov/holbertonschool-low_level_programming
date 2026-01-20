@@ -1,12 +1,9 @@
 #include "main.h"
 
-int main()
+int main(int argc, char *argv[])
 {
-	const char *filename = "test.txt";
-	char *text_content = "Saam Eekim";
-
-	int res = append_text_to_file(filename, text_content);
-	printf("%d\n", res);
-
+	char *file_from = argv[1];
+	char *file_to = argv[2];
+	cp(argc, file_from, file_to);
 	return (0);
 }
