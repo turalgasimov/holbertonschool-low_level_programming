@@ -2,10 +2,10 @@
 
 int main()
 {
-	const char *filename = "main.h";
-	size_t letters = 100;
+	const char *filename = "test.txt";
+	char *text_content = "Saam Eekim";
 
-	ssize_t res = read_textfile(filename, letters);
-	printf("\n-----------x\nPrinted: %zd|\n-----------x\n", res);
+	create_file(filename, text_content);
+
 	return (0);
 }
