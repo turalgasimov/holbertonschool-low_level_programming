@@ -3,7 +3,8 @@
 /**
  * cp - entry
  * @argc: count
- * @argv: list
+ * @file_from: from
+ * @file_to: to
  * Return: 97/98/99/100
  */
 
