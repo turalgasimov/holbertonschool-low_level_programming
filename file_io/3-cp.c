@@ -1,24 +1,26 @@
 #include "main.h"
 
 /**
- * cp - entry
+ * main - entry
  * @argc: count
- * @file_from: from
- * @file_to: to
+ * @argv: list
  * Return: 97/98/99/100
  */
 
-int cp(int argc, char *file_from, char *file_to)
+int main(int argc, char *argv[])
 {
 	int fd_from, fd_to, fd_out;
 	ssize_t bytesRead, bytesWrit;
-	char buff[1024];
+	char *file_from, *file_to, buff[1024];
 
 	if (argc != 3)
 	{
 		printf("Usage: cp file_from file_to\n");
 		exit(97);
 	}
+
+	file_from = argv[1];
+	file_to = argv[2];
 
 	fd_from = open(file_from, O_RDONLY);
 	bytesRead = read(fd_from, buff, sizeof(buff));
@@ -42,5 +44,5 @@ int cp(int argc, char *file_from, char *file_to)
 		dprintf(fd_out, "Error: Can't close fd %d", fd_out);
 	}
 
-	return (1);
+	return (0);
 }
