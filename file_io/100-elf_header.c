@@ -93,7 +93,7 @@ void print_osabi(unsigned char *e)
 	else if (e[EI_OSABI] == ELFOSABI_SOLARIS)
 		printf("UNIX - Solaris\n");
 	else
-		printf("Other\n");
+		printf("\n");
 }
 
 /**
