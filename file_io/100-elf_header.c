@@ -90,6 +90,8 @@ void print_osabi(unsigned char *e)
 		printf("UNIX - Linux\n");
 	else if (e[EI_OSABI] == ELFOSABI_NETBSD)
 		printf("UNIX - NetBSD\n");
+	else if (e[EI_OSABI] == ELFOSABI_SOLARIS)
+		printf("UNIX - Solaris\n");
 	else
 		printf("Other\n");
 }
