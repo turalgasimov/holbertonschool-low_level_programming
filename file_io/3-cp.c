@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	file_to = argv[2];
 
 	fd_from = open(file_from, O_RDONLY);
-	bytesRead = read(fd_from, buff, sizeof(buff));
+	bytesRead = read(fd_from, buff, sizeof(fd_from));
 	if (fd_from == -1 || bytesRead == -1)
 	{
 		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
