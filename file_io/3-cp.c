@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
 		bytesWrit = write(fd_to, buff, bytesRead);
 		if (fd_to == -1 || bytesWrit == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s", file_to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 		bytesRead = read(fd_from, buff, sizeof(buff));
@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
 		fd_out = (fd_from == -1) ? fd_from : fd_to;
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d", fd_out);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_out);
 		exit(100);
 	}
 	return (0);
