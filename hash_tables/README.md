@@ -5,3 +5,6 @@ List of the files and their purposes:
 1-djb2.c -> implementing the djb2 algorithm.
 
 2-key_index.c -> gives you the index of a key.
+
+3-hash_table_set.c -> adds an element to the hash table.
+
