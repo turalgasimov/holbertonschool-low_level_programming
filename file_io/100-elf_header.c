@@ -28,7 +28,7 @@ unsigned int swap_uint32(unsigned int val)
  * @val: value to swap
  * Return: swapped value
  */
-unsigned long long swap_uint64(unsigned long long val)
+unsigned long swap_uint64(unsigned long val)
 {
 	val = ((val << 8) & 0xFF00FF00FF00FF00) | ((val >> 8) & 0x00FF00FF00FF00FF);
 	val = ((val << 16) & 0xFFFF0000FFFF0000) | ((val >> 16) & 0x0000FFFF0000FFFF);
