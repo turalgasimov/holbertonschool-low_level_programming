@@ -6,7 +6,7 @@
  */
 void display_error(const char *message)
 {
-	dprintf(stderr, "%s\n", message);
+	dprintf(STDERR_FILENO, "%s\n", message);
 	exit(98);
 }
 
@@ -19,7 +19,7 @@ void display_elf_header(const char *filename)
 	int fd;
 	Elf64_Ehdr elf_header;
 
-	fd = open(filename, O_RDONLY)
+	fd = open(filename, O_RDONLY);
 	if (fd == -1)
 		display_error("Failed to open the file");
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
