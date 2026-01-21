@@ -172,8 +172,11 @@ void print_type(Elf64_Ehdr *elf_header)
  */
 void print_entry(Elf64_Ehdr *elf_header)
 {
-	printf("  Entry point address:               0x%lx\n",
-		(unsigned long)elf_header->e_entry);
+	printf("  Entry point address:               ");
+	if (elf_header->e_ident[EI_CLASS] == ELFCLASS32)
+		printf("0x%x\n", (unsigned int)elf_header->e_entry);
+	else
+		printf("0x%lx\n", (unsigned long)elf_header->e_entry);
 }
 
 /**
