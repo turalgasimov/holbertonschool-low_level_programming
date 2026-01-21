@@ -5,7 +5,7 @@
  * @val: value to swap
  * Return: swapped value
  */
-uint16_t swap_uint16(uint16_t val)
+unsigned short swap_uint16(unsigned short val)
 {
 	return ((val << 8) | (val >> 8));
 }
@@ -15,7 +15,7 @@ uint16_t swap_uint16(uint16_t val)
  * @val: value to swap
  * Return: swapped value
  */
-uint32_t swap_uint32(uint32_t val)
+unsigned int swap_uint32(unsigned int val)
 {
 	return (((val << 24) & 0xff000000) |
 	       ((val << 8)  & 0x00ff0000) |
@@ -28,7 +28,7 @@ uint32_t swap_uint32(uint32_t val)
  * @val: value to swap
  * Return: swapped value
  */
-uint64_t swap_uint64(uint64_t val)
+unsigned long swap_uint64(unsigned long val)
 {
 	return (((val << 56) & 0xff00000000000000ULL) |
 	       ((val << 40) & 0x00ff000000000000ULL) |
