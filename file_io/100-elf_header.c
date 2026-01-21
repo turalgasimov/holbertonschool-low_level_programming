@@ -1,6 +1,46 @@
 #include "main.h"
 
 /**
+ * swap_uint16 - swaps endianness of uint16
+ * @val: value to swap
+ * Return: swapped value
+ */
+uint16_t swap_uint16(uint16_t val)
+{
+	return ((val << 8) | (val >> 8));
+}
+
+/**
+ * swap_uint32 - swaps endianness of uint32
+ * @val: value to swap
+ * Return: swapped value
+ */
+uint32_t swap_uint32(uint32_t val)
+{
+	return (((val << 24) & 0xff000000) |
+	       ((val << 8)  & 0x00ff0000) |
+	       ((val >> 8)  & 0x0000ff00) |
+	       ((val >> 24) & 0x000000ff));
+}
+
+/**
+ * swap_uint64 - swaps endianness of uint64
+ * @val: value to swap
+ * Return: swapped value
+ */
+uint64_t swap_uint64(uint64_t val)
+{
+	return (((val << 56) & 0xff00000000000000ULL) |
+	       ((val << 40) & 0x00ff000000000000ULL) |
+	       ((val << 24) & 0x0000ff0000000000ULL) |
+	       ((val << 8)  & 0x000000ff00000000ULL) |
+	       ((val >> 8)  & 0x00000000ff000000ULL) |
+	       ((val >> 24) & 0x0000000000ff0000ULL) |
+	       ((val >> 40) & 0x000000000000ff00ULL) |
+	       ((val >> 56) & 0x00000000000000ffULL));
+}
+
+/**
  * display_error - entry
  * @message: string
  */
@@ -185,7 +225,7 @@ void print_entry(Elf64_Ehdr *elf_header)
  */
 void display_elf_header(const char *filename)
 {
-	int fd;
+	int fd, needs_swap = 0;
 	Elf64_Ehdr elf_header;
 
 	fd = open(filename, O_RDONLY);
@@ -193,14 +233,23 @@ void display_elf_header(const char *filename)
 		display_error("Failed to open the file");
 	if (read(fd, &elf_header, sizeof(Elf64_Ehdr)) != sizeof(Elf64_Ehdr))
 		display_error("Failed to read the ELF header");
-
-	/* Check if it's a valid ELF file */
 	if (elf_header.e_ident[EI_MAG0] != ELFMAG0 ||
-	elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
-	elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
-	elf_header.e_ident[EI_MAG3] != ELFMAG3)
+	    elf_header.e_ident[EI_MAG1] != ELFMAG1 ||
+	    elf_header.e_ident[EI_MAG2] != ELFMAG2 ||
+	    elf_header.e_ident[EI_MAG3] != ELFMAG3)
 		display_error("Not a valid ELF file");
-
+#if __BYTE_ORDER == __LITTLE_ENDIAN
+	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
+		needs_swap = 1;
+#elif __BYTE_ORDER == __BIG_ENDIAN
+	if (elf_header.e_ident[EI_DATA] == ELFDATA2LSB)
+		needs_swap = 1;
+#endif
+	if (needs_swap)
+	{
+		elf_header.e_type = swap_uint16(elf_header.e_type);
+		elf_header.e_entry = swap_uint64(elf_header.e_entry);
+	}
 	/* Display the required information */
 	printf("ELF Header:\n");
 	print_magic(&elf_header);
@@ -211,7 +260,6 @@ void display_elf_header(const char *filename)
 	print_abi(&elf_header);
 	print_type(&elf_header);
 	print_entry(&elf_header);
-
 	close(fd);
 }
 
