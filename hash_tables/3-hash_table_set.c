@@ -39,6 +39,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 			}
 			tmp = tmp->next;
 		}
+		tmp = newNode;
+		newNode = malloc(sizeof(hash_node_t));
 	}
 	newNode->next = ht->array[index];
 	newNode->key = strdup(key);
