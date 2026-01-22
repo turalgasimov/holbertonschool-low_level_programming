@@ -39,23 +39,18 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	index = key_index((unsigned char *)key, ht->size);
 	head = ht->array[index];
 	newNode = head;
+	newNode = malloc(sizeof(hash_node_t));
+	newNode->key = k;
+	newNode->value = val;
 
 	if (newNode == NULL)
 	{
-		newNode = malloc(sizeof(hash_node_t));
-		if (newNode == NULL)
-			return (0);
-		newNode->key = k;
-		newNode->value = val;
 		newNode->next = NULL;
 		return (1);
 	}
 
-	newNode = malloc(sizeof(hash_node_t));
-	newNode->key = k;
-	newNode->value = val;
 	newNode->next = head;
 	head = newNode;
-	
+
 	return (1);
 }
