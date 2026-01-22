@@ -36,9 +36,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	val = strdup(value);
 	k = strdup(key);
 
-	head = ht->array[index];
-
 	index = key_index((unsigned char *)key, ht->size);
+	head = ht->array[index];
 	newNode = head;
 
 	if (newNode == NULL)
