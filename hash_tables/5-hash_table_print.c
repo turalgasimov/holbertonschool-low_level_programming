@@ -7,10 +7,10 @@
 void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *node;
-	int index;
+	unsigned long int index;
 
 	if (!ht)
-		return (NULL);
+		return;
 
 	for (index = 0; index < ht->size; i++)
 	{
