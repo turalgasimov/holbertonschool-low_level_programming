@@ -16,10 +16,12 @@ void hash_table_print(const hash_table_t *ht)
 	for (index = 0; index < ht->size; index++)
 	{
 		node = ht->array[index];
-		if (!node)
+		if (!(node->next))
+		{
+			printf("\'%s\': \'%s\'", node->key, node->value);
 			continue;
+		}
 		printf("\'%s\': \'%s\', ", node->key, node->value);
-
 	}
 	printf("}");
 }
