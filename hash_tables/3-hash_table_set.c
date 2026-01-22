@@ -51,13 +51,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (1);
 	}
 
-	if (newNode != NULL)
-	{
-		newNode = malloc(sizeof(hash_node_t));
-		newNode->key = k;
-		newNode->value = val;
-		newNode->next = head;
-		head = newNode;
-		return (1);
-	}
+	newNode = malloc(sizeof(hash_node_t));
+	newNode->key = k;
+	newNode->value = val;
+	newNode->next = head;
+	head = newNode;
+	
+	return (1);
 }
