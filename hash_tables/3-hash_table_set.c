@@ -1,22 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * push - create a new node;
- * Return: node
- */
-/* hash_node_t *push()
-{
-} */
-
-/**
- * update - update node;
- * Return: node
- */
-/* hash_node_t *update()
-{
-} */
-
-/**
  * hash_table_set - adds an element to the hash table.
  * @ht: hash table you want to add or update the key/value to.
  * @key: is the key.
