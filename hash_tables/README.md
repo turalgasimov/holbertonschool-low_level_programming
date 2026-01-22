@@ -8,3 +8,4 @@ List of the files and their purposes:
 
 3-hash_table_set.c -> adds an element to the hash table.
 
+4-hash_table_get.c -> retrieves a value associated with a key.
