@@ -1,16 +1,20 @@
 #include "hash_tables.h"
 
 /**
- * newNode - create new node;
+ * push - create a new node;
  * Return: node
  */
-hash_node_t *newNode()
+/* hash_node_t *push()
 {
-	hash_node_t *node;
+} */
 
-	node = malloc(sizeof(hash_node_t));
-	return (node);
-}
+/**
+ * update - update node;
+ * Return: node
+ */
+/* hash_node_t *update()
+{
+} */
 
 /**
  * hash_table_set - adds an element to the hash table.
@@ -23,26 +27,38 @@ hash_node_t *newNode()
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	hash_node_t *new_node;
+	char *val, *k;
+	hash_node_t *newNode, *head;
 
 	if (!ht || !key)
 		return (0);
 
+	val = strdup(value);
+	k = strdup(key);
+
+	head = ht->array[index];
+
 	index = key_index((unsigned char *)key, ht->size);
+	newNode = head;
 
-	new_node = ht->array[index];
-	new_node = newNode();
-	new_node->value = strdup(value);
-	new_node->key = strdup(key);
-
-	if (!new_node)
+	if (newNode == NULL)
 	{
-		new_node->next = NULL;
+		newNode = malloc(sizeof(hash_node_t));
+		if (newNode == NULL)
+			return (0);
+		newNode->key = k;
+		newNode->value = val;
+		newNode->next = NULL;
 		return (1);
 	}
 
-	new_node->next = ht->array[index];
-	ht->array[index] = new_node;
-
-	return (1);
+	if (newNode != NULL)
+	{
+		newNode = malloc(sizeof(hash_node_t));
+		newNode->key = k;
+		newNode->value = val;
+		newNode->next = head;
+		head = newNode;
+		return (1);
+	}
 }
