@@ -23,7 +23,6 @@ hash_node_t *newNode()
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
-	char *val;
 	hash_node_t *new_node;
 
 	if (!ht || !key)
